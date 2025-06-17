@@ -244,3 +244,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+// About Page Animations
+document.addEventListener('DOMContentLoaded', function() {
+  // Team member hover effects
+  const teamMembers = document.querySelectorAll('.team-member');
+  teamMembers.forEach(member => {
+    member.addEventListener('mouseenter', function() {
+      this.querySelector('img').style.transform = 'scale(1.05)';
+      this.querySelector('img').style.borderColor = 'var(--gold)';
+    });
+    
+    member.addEventListener('mouseleave', function() {
+      this.querySelector('img').style.transform = 'scale(1)';
+      this.querySelector('img').style.borderColor = 'var(--baby-pink)';
+    });
+  });
+
+  // Brand cards interaction
+  const brandCards = document.querySelectorAll('.brand-card');
+  brandCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (!e.target.classList.contains('btn-view-products')) {
+        const brandName = this.querySelector('h2').textContent;
+        console.log(`Viewing all products from ${brandName}`);
+        // window.location.href = `/brands/${brandName.toLowerCase().replace(/\s+/g, '-')}`;
+      }
+    });
+  });
+
+  // View Products button effects
+  const brandButtons = document.querySelectorAll('.btn-view-products');
+  brandButtons.forEach(button => {
+    button.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+    });
+    
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+});

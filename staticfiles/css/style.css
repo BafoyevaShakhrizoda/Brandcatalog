@@ -940,3 +940,244 @@ footer::before {
 .category-card:hover span {
   transform: scale(1.1);
 }
+/* ===== ABOUT PAGE STYLES ===== */
+.about-section {
+  padding: 4rem 0;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.about-image {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--medium-gray);
+}
+
+.mission-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.mission, .vision {
+  background: rgba(255,182,193,0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 3px solid var(--gold);
+}
+
+.mission h3, .vision h3 {
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.values ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.values li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.values li::before {
+  content: '♥';
+  color: var(--baby-pink);
+  position: absolute;
+  left: 0;
+}
+
+.team-section {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--dark-gray);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: var(--transition-magic);
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255,182,193,0.2);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--baby-pink);
+}
+
+.team-member h3 {
+  margin: 0.5rem 0;
+  color: var(--dark-gray);
+}
+
+.team-member p {
+  color: var(--medium-gray);
+  font-style: italic;
+}
+
+/* ===== BRANDS PAGE STYLES ===== */
+.brands-section {
+  padding: 4rem 0;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.brand-card {
+  display: flex;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: var(--transition-magic);
+}
+
+.brand-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(255,182,193,0.3);
+}
+
+.brand-logo {
+  width: 120px;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.brand-logo img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.brand-info {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.brand-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-gray);
+}
+
+.brand-info p {
+  color: var(--medium-gray);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-view-products {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: var(--baby-pink);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.btn-view-products:hover {
+  background: var(--gold);
+}
+
+.brand-cta {
+  text-align: center;
+  background: rgba(255,182,193,0.1);
+  padding: 3rem;
+  border-radius: 15px;
+  margin-top: 3rem;
+}
+
+.brand-cta h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark-gray);
+}
+
+.brand-cta p {
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+}
+
+.btn-contact {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--gold);
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-magic);
+}
+
+.btn-contact:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255,215,0,0.4);
+}
