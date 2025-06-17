@@ -178,3 +178,69 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+// New Arrivals Carousel Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize product carousel
+  const productGrid = document.querySelector('.products-grid');
+  
+  if (productGrid) {
+    // Add swipe functionality for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    productGrid.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    
+    productGrid.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+      if (touchEndX < touchStartX) {
+        productGrid.scrollBy({ left: 200, behavior: 'smooth' });
+      }
+      if (touchEndX > touchStartX) {
+        productGrid.scrollBy({ left: -200, behavior: 'smooth' });
+      }
+    }
+  }
+
+  // Wishlist functionality
+  const wishlistButtons = document.querySelectorAll('.btn-wishlist');
+  
+  wishlistButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      this.textContent = this.textContent === '♡' ? '♥' : '♡';
+      this.style.color = this.textContent === '♥' ? 'red' : 'var(--baby-pink)';
+      
+      // Add your wishlist logic here
+      const productName = this.closest('.product-card').querySelector('h3').textContent;
+      console.log(`${productName} ${this.textContent === '♥' ? 'added to' : 'removed from'} wishlist`);
+    });
+  });
+
+  // Add to cart functionality
+  const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+  
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const productCard = this.closest('.product-card');
+      const productName = productCard.querySelector('h3').textContent;
+      const productPrice = productCard.querySelector('.price').textContent;
+      
+      // Animation
+      this.textContent = 'Added!';
+      this.style.backgroundColor = 'var(--gold)';
+      
+      setTimeout(() => {
+        this.textContent = 'Add to Cart';
+        this.style.backgroundColor = 'var(--baby-pink)';
+      }, 2000);
+      
+      console.log(`Added ${productName} (${productPrice}) to cart`);
+    });
+  });
+});
