@@ -48,3 +48,133 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+// Add this to your existing script.js or create a new one
+document.addEventListener('DOMContentLoaded', function() {
+  // Add hover effect to category cards
+  const categoryCards = document.querySelectorAll('.category-card');
+  
+  categoryCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px) rotateX(3deg)';
+      this.style.boxShadow = '0 15px 40px rgba(255, 182, 193, 0.3), 0 0 20px rgba(255, 182, 193, 0.4)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+      this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+    });
+  });
+
+  // Add click effect to category cards
+  categoryCards.forEach(card => {
+    card.addEventListener('click', function() {
+      // Add your navigation logic here
+      console.log('Navigating to category:', this.querySelector('h2').textContent);
+      // Example: window.location.href = '/category/' + this.dataset.categoryId;
+    });
+  });
+});
+
+// Add this to your existing script.js or create a new one
+document.addEventListener('DOMContentLoaded', function() {
+  // Product card hover effects
+  const productCards = document.querySelectorAll('.product-card');
+  
+  productCards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px) rotateX(3deg)';
+      this.style.boxShadow = '0 15px 40px rgba(255, 182, 193, 0.3), 0 0 20px rgba(255, 182, 193, 0.4)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+      this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.08)';
+    });
+
+    // Add to cart functionality
+    const button = this.querySelector('button');
+    if (button) {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        // Add your cart logic here
+        const productName = card.querySelector('h2').textContent;
+        const productPrice = card.querySelector('.price').textContent;
+        
+        // Animation effect
+        button.textContent = 'Added!';
+        button.style.background = 'linear-gradient(45deg, var(--gold), var(--baby-pink))';
+        
+        setTimeout(() => {
+          button.textContent = 'Buy Now';
+          button.style.background = 'linear-gradient(45deg, var(--baby-pink), var(--gold))';
+        }, 1500);
+        
+        console.log(`Added ${productName} (${productPrice}) to cart`);
+      });
+    }
+  });
+
+  // Product card click for details
+  productCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName !== 'BUTTON') {
+        // Add your product detail navigation here
+        const productName = this.querySelector('h2').textContent;
+        console.log('Viewing details for:', productName);
+        // Example: window.location.href = '/products/' + productName.toLowerCase().replace(/\s+/g, '-');
+      }
+    });
+  });
+});
+
+// Add this to your existing script.js or create a new one
+document.addEventListener('DOMContentLoaded', function() {
+  // Product image zoom effect
+  const productImage = document.querySelector('.product-image img');
+  if (productImage) {
+    productImage.addEventListener('mousemove', function(e) {
+      const { left, top, width, height } = this.getBoundingClientRect();
+      const x = (e.pageX - left) / width * 100;
+      const y = (e.pageY - top) / height * 100;
+      this.style.transformOrigin = `${x}% ${y}%`;
+      this.style.transform = 'scale(1.05)';
+    });
+    
+    productImage.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+    });
+  }
+
+  // Buy Now button effect
+  const buyButton = document.querySelector('.product-info button');
+  if (buyButton) {
+    buyButton.addEventListener('click', function() {
+      // Add your purchase logic here
+      const productName = document.querySelector('.product-info h1').textContent;
+      const productPrice = document.querySelector('.price').textContent;
+      
+      // Animation effect
+      this.textContent = 'Added to Cart!';
+      this.style.background = 'linear-gradient(45deg, var(--gold), var(--baby-pink))';
+      
+      setTimeout(() => {
+        this.textContent = 'Buy Now';
+        this.style.background = 'linear-gradient(45deg, var(--baby-pink), var(--gold))';
+      }, 2000);
+      
+      console.log(`Purchased ${productName} (${productPrice})`);
+    });
+  }
+
+  // Back link hover effect
+  const backLink = document.querySelector('.back-link a');
+  if (backLink) {
+    backLink.addEventListener('mouseenter', function() {
+      this.querySelector('span').style.transform = 'translateX(-5px)';
+    });
+    
+    backLink.addEventListener('mouseleave', function() {
+      this.querySelector('span').style.transform = 'translateX(0)';
+    });
+  }
+});
