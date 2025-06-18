@@ -1,3 +1,3 @@
 from django.db import models
 
-# Create your models here.
+from apps.common.models import BaseModel
