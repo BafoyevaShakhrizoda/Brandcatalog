@@ -1,4 +1,4 @@
-{% load static %} <!-- Bu qator eng yuqoriga qo'shiling -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,15 +37,23 @@
         </div>
     </header>
     
+    <!-- Search Bar -->
+    <div class="search-container animate__animated animate__fadeIn animate__delay-1s">
+        <form action="{% url 'search_products' %}" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Search products..." class="search-input" required>
+            <button type="submit" class="search-button">
+                <i class="search-icon">🔍</i>
+            </button>
+        </form>
+    </div>
+    
     <!-- Navigation -->
     <nav class="animate__animated animate__fadeIn animate__delay-1s">
         <ul class="nav-links">
             <li><a href="{% url 'home' %}" class="animate__animated animate__fadeIn animate__delay-2s">Home</a></li>
-            <li><a href="{% url 'brand' %}" class="animate__animated animate__fadeIn animate__delay-2s">Brands</a></li>
+            <li><a href="{% url 'brands' %}" class="animate__animated animate__fadeIn animate__delay-2s">Brands</a></li>
             <li><a href="{% url 'categories' %}" class="animate__animated animate__fadeIn animate__delay-2s">Categories</a></li>
             <li><a href="{% url 'about' %}" class="animate__animated animate__fadeIn animate__delay-2s">About</a></li>
-            <li><a href="{% url 'products' %}" class="animate__animated animate__fadeIn animate__delay-2s">Products</a></li>
-            <li><a href="{% url 'product' %}" class="animate__animated animate__fadeIn animate__delay-2s">Product</a></li>
         </ul>
     </nav>
     

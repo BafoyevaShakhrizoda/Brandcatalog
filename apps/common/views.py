@@ -6,5 +6,5 @@ def home(request):
 def about(request):
     return render(request,'about.html', context={ 'title': 'About' })
 
-def brand(request):
-    return render(request,'brand.html', context={ 'title': 'Brands' })
+def brands(request):
+    return render(request,'brands.html', context={ 'title': 'Brands' })

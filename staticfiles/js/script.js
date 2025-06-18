@@ -284,3 +284,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchForm = document.querySelector('.search-form');
+    
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchQuery = this.querySelector('input[name="q"]').value.trim();
+            if (searchQuery) {
+                window.location.href = `/search/?q=${encodeURIComponent(searchQuery)}`;
+            }
+        });
+    }
+    
+    // Highlight search term if coming from search
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTerm = urlParams.get('q');
+    if (searchTerm) {
+        highlightSearchTerms(searchTerm);
+    }
+});
+
+function highlightSearchTerms(term) {
+    const productCards = document.querySelectorAll('.product-card h3, .product-card p');
+    const regex = new RegExp(term, 'gi');
+    
+    productCards.forEach(card => {
+        const html = card.innerHTML;
+        const highlighted = html.replace(regex, match => 
+            `<span class="highlight">${match}</span>`);
+        card.innerHTML = highlighted;
+    });
+}
